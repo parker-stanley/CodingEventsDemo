@@ -30,7 +30,7 @@ namespace coding_events_practice.Controllers
         }
 
         [HttpPost]
-        [Route("/Events/Add")]
+        [Route("/Events")]
         IActionResult NewEvent(string name)
         {
             Events.Add(name);
