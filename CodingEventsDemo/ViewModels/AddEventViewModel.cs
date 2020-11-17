@@ -15,5 +15,13 @@ namespace CodingEventsDemo.ViewModels
 
         [EmailAddress]
         public string ContactEmail { get; set; }
+
+        [Required]
+        public string Location { get; set; }
+
+        [Required]
+        [Range(0, 100000)]
+        public int NumAttendees { get; set; }
+
     }
 }
