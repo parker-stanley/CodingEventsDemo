@@ -16,9 +16,9 @@ namespace coding_events_practice.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.events = EventData.GetAll();
+            List<Event> events = new List<Event>(EventData.GetAll());
 
-            return View();
+            return View(events);
         }
 
         public IActionResult Add()
@@ -59,17 +59,14 @@ namespace coding_events_practice.Controllers
         public IActionResult Edit(int eventId)
         {
             ViewBag.found = EventData.GetById(eventId);
-            ViewBag.title = "Edit Event " + ViewBag.found.Name + " (id=" + ViewBag.found.Id + ")";
-            //SubmitEditEventForm(ViewBag.found.Id, ViewBag.found.Name, ViewBag.found.Description);
+            ViewBag.title = $"Edit Event {ViewBag.found.Name} (id={ViewBag.found.Id})";
             return View();
         }
 
         [HttpPost("/Events/Edit")]
         public IActionResult SubmitEditEventForm(int eventId, string name, string description)
         {
-            ViewBag.found = EventData.GetById(eventId);
-            ViewBag.found.Name = name;
-            ViewBag.found.Description = description;
+            EventData.Edit(eventId, name, description);
 
             return Redirect("/Events");
         }
