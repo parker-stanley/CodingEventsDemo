@@ -1,10 +1,17 @@
-﻿<h1>Coding Events</h1>
+﻿@model List<CodingEventsDemo.Models.Event>
+
+<h1>Coding Events</h1>
 
 <p>
     <a asp-controller="Events" asp-action="Add">Add Event</a>
 </p>
 
-@if (ViewBag.events.Count == 0)
+
+<p>
+    <a asp-controller="Events" asp-action="Delete">Delete Event</a>
+</p>
+
+@if (Model.Count == 0)
 {
     <p>No events yet!</p>
 }
@@ -12,6 +19,7 @@ else
 {
     <table class="table">
         <tr>
+<<<<<<< HEAD
             <th>Event Name</th>
             <th>Event Description</th>
         </tr>
@@ -20,7 +28,37 @@ else
             <tr>
                 <td>@meeting.Key</td>
                 <td>@meeting.Value</td>
+=======
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Contact Email
+            </th>
+            <th>
+                Event Type
+            </th>
+        </tr>
+        @foreach (var evt in Model)
+        {
+            <tr>
+                <td>@evt.Id</td>
+                <td>@evt.Name</td>
+                <td>@evt.Description</td>
+                <td>@evt.ContactEmail</td>
+                <td>@evt.Type</td>
+>>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
             </tr>
         }
     </table>
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
