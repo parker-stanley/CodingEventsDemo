@@ -24,7 +24,7 @@ namespace CodingEventsDemo.Controllers
         {
             List<EventCategory> eventCategories = context.EventCategories.ToList();
 
-            return View();
+            return View(eventCategories);
         }
 
         //GET 
