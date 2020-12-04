@@ -1,12 +1,5 @@
 ﻿@model CodingEventsDemo.ViewModels.AddEventViewModel;
 
-<<<<<<< HEAD
-<form method="post">
-    <label>Name: </label>
-    <input name="name" type="text" /> <br />
-    <label>Event description: </label>
-    <textarea name="description"></textarea><br />
-=======
 <h1>Add Event</h1>
 
 <form asp-controller="Events" asp-action="Add" method="post">
@@ -28,6 +21,5 @@
         <label asp-for="Type">Event Type</label>
         <select asp-for="Type" asp-items="Model.EventTypes"></select>
     </div>
->>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
     <input type="submit" value="Add Event" />
 </form>

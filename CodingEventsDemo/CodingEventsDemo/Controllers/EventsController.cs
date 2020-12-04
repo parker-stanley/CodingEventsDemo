@@ -13,13 +13,7 @@ namespace coding_events_practice.Controllers
 {
     public class EventsController : Controller
     {
-<<<<<<< HEAD
-        static private Dictionary<string, string> Events = new Dictionary<string, string>();
-
-=======
->>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
         // GET: /<controller>/
-        [HttpGet]
         public IActionResult Index()
         {
             List<Event> events = new List<Event>(EventData.GetAll());
@@ -27,12 +21,8 @@ namespace coding_events_practice.Controllers
             return View(events);
         }
 
-        //GET /<controller>/
-        [HttpGet]
         public IActionResult Add()
         {
-<<<<<<< HEAD
-=======
             AddEventViewModel addEventViewModel = new AddEventViewModel();
 
             return View(addEventViewModel);
@@ -62,28 +52,19 @@ namespace coding_events_practice.Controllers
         public IActionResult Delete()
         {
             ViewBag.events = EventData.GetAll();
->>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
 
             return View();
         }
 
         [HttpPost]
-<<<<<<< HEAD
-        [Route("/Events/Add")]
-        public IActionResult NewEvent(string name, string description)
-        {
-            Events.Add(name, description);
-=======
         public IActionResult Delete(int[] eventIds)
         {
             foreach (int eventId in eventIds)
             {
                 EventData.Remove(eventId);
             }
->>>>>>> 838dc503f348ec653d85ad4ca948f9a13b665aeb
 
             return Redirect("/Events");
         }
-
     }
 }
